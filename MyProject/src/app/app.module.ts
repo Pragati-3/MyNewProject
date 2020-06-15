@@ -9,6 +9,13 @@ import { ContactUsComponent } from './layouts/contact-us/contact-us.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { NavComponent } from './layouts/nav/nav.component';
 import { ProductsComponent } from './layouts/products/products.component';
+import { SimpleStyleDirective } from './directives/simple-style.directive';
+import { NewstyleDirective } from './directives/newstyle.directive';
+import { BookComponent } from './Product/book/book.component';
+import { MobPartComponent } from './Product/mob-part/mob-part.component';
+import { PenComponent } from './Product/pen/pen.component';
+import { LaptopComponent } from './Product/laptop/laptop.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +26,14 @@ import { ProductsComponent } from './layouts/products/products.component';
     ContactUsComponent,
     FooterComponent,
     NavComponent,
-    ProductsComponent
+    ProductsComponent,
+    SimpleStyleDirective,
+    NewstyleDirective,
+    BookComponent,
+    MobPartComponent,
+    PenComponent,
+    LaptopComponent
+ 
   ],
   imports: [
     BrowserModule

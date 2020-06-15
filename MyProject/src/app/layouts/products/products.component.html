@@ -18,7 +18,7 @@
                 </span>
                             </div>
                             <div class="card-content">
-                                <p>
+                                <p appSimpleStyle>
                                     Mobile Part ID : <b>{{ mobPart.id }}</b>
                                 </p>
                                 <div [style.color]="mobPart.prodColor">
@@ -44,7 +44,7 @@
                 <ng-template #outOfStock>
                   Out Of Stock
                 </ng-template>
-                <p>Price : {{ mobPart.price | currency: "INR" }}</p>
+                <p appNewstyle>Price : {{ mobPart.price | currency: "INR" }}</p>
 
                 <div
                   [ngStyle]="{
