@@ -1,1 +1,32 @@
-<p>book works!</p>
+<ul>
+    <li *ngFor="let laptop of laptops">
+        <div class="col s8 m3">
+            <div class="card-action">
+                <span class="card-title">
+                     <b><i>{{ laptop.name | lowercase }}</i></b>
+                </span>
+            </div>
+            <div class="card-content">
+                <p appSimpleStyle>
+                    laptop ID : <b>{{ laptop.id }}</b>
+                </p>
+                <div [style.color]="laptop.prodColor">
+                    laptop Name :
+                    <b><i>{{ laptop.name | uppercase }}</i></b>
+                </div>
+                <div>
+                    eBookfeatures : <q>{{ laptop.eBookfeatures }}</q>
+                </div>
+                <ng-container *ngIf="laptop.inStock != 0; then stockVal; else outOfStock">
+                </ng-container>
+                <ng-template #stockVal>
+                    Last <mark>{{ laptop.inStock }}</mark> Parts Available in stock now...
+                </ng-template>
+                <ng-template #outOfStock>
+                    Out Of Stock
+                </ng-template>
+                <p>Price : {{ laptop.price | currency: "INR" }}</p>
+            </div>
+        </div>
+    </li>
+</ul>
