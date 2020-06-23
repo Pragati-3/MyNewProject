@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LaptOps } from './data';
 
 @Component({
   selector: 'app-laptop',
@@ -7,42 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LaptopComponent implements OnInit {
 
-  laptops = [
+  laptops:LaptOps[] = [
+   
     {
       id: 1001,
-      name: "Dell",
-      description: "15.6 Screen HD",
-      inStock: 0,
-      prodColor: "red",
-      // canPurch: true,
-      namecol: "green",
-      clsVar: true,
-      country: "Australia",
-      price: 10000,
-    },
-    {
-      id: 1002,
       name: "HP 101",
       description: "5 Screen",
       inStock: 8,
+      lapimg:"download (3).jpg",
       prodColor: "blue",
-      // canPurch: false,
       namecol: "Red",
       clsVar: true,
       country: "India",
       price: 50000,
     },
     {
-      id: 1003,
+      id: 1002,
       name: "Lenov",
       description: "5.5 Screen",
       inStock: 2,
       prodColor: "red",
-      // canPurch: true,
+      lapimg:"download (2).jpg",
       namecol: "green",
       clsVar: true,
       country: "Australia",
-      price: 10000,
+      price: 30000,
     },
     {
       id: 1003,
@@ -50,11 +40,23 @@ export class LaptopComponent implements OnInit {
       description: "5.5 Screen",
       inStock: 3,
       prodColor: "red",
-      // canPurch: true,
+      lapimg:"d.jpg",
       namecol: "green",
       clsVar: true,
       country: "Australia",
       price: 10000,
+    },
+    {
+      id: 1004,
+      name: "Dell",
+      description: "15.6 Screen HD",
+      lapimg:"download1.jpg",
+      prodColor: "red",
+      namecol: "green",
+      clsVar: true,
+      country: "Australia",
+      price: 20000,
+      inStock:2,
     },
     
   ]

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BannerTwoComponent } from './layouts/banner-two/banner-two.component';
@@ -15,6 +16,8 @@ import { BookComponent } from './Product/book/book.component';
 import { MobPartComponent } from './Product/mob-part/mob-part.component';
 import { PenComponent } from './Product/pen/pen.component';
 import { LaptopComponent } from './Product/laptop/laptop.component';
+
+import { AppRoutingModule } from './modules/app-routing.module';
 
 
 @NgModule({
@@ -32,11 +35,14 @@ import { LaptopComponent } from './Product/laptop/laptop.component';
     BookComponent,
     MobPartComponent,
     PenComponent,
-    LaptopComponent
+    LaptopComponent,
+    
  
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

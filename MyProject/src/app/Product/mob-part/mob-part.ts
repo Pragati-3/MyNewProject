@@ -11,5 +11,6 @@
       country: string;
       price: number;
       prodimage:string;
+      quantity: number;
 
  }

@@ -1,45 +1,59 @@
 <h1>We have {{ calcProd() }} Products...!</h1>
-
 <ul>
     <li *ngFor="let mobPart of mobParts">
-        <div class="col s6 m3">
+        <div class="col s6 m3 carhight:55px overflow:auto">
             <div class="card" [class.clsName]="mobPart.clsVar">
                 <div class="card-image">
                     <!-- <img src="{{ mobPart.prodImg }}" /> -->
                     <!-- <img [src]="mobPart.prodImg" /> -->
                     <img src="../../../assets/img/{{ mobPart.prodimage }}" />
-                    <span class="card-title">{{ mobPart.name | uppercase }}</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a
-          >
-        </div>
-        <div class="card-content">
-          <p id="appSimpleStyle">
-            Mobile Part ID : <b>{{ mobPart.id }}</b>
-          </p>
-          <div [style.color]="mobPart.prodColor">
-            Mobile Part Name :
-            <b
-              ><i>{{ mobPart.name | uppercase }}</i></b
-            >
-          </div>
-          <div>
-            Description : <q>{{ mobPart.description }}</q>
-          </div>
-
+                    <div class="card-title" [style.color]="mobPart.namecol">
+                        <b><i>{{ mobPart.name | uppercase }}</i></b >
+                    </div>
+                   <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                   <p>
+                       Mobile Part ID : <b>{{ mobPart.id }}</b>
+                        </p>
+                        <div [style.color]="mobPart.prodColor">
+                            Mobile Part Name :
+                            <b><i>{{ mobPart.name | uppercase }}</i></b >
+                       </div>
+           <div appNewstyle>
+                    Description : <q>{{ mobPart.description }}</q>
+            </div>
           <ng-container
-            *ngIf="mobPart.inStock != 0; then stockVal; else outOfStock"
-          >
+            *ngIf="mobPart.inStock != 0; then stockVal; else outOfStock">
           </ng-container>
-
-          <ng-template #stockVal>
-            Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock
+         <ng-template #stockVal>
+            Last <mark >{{ mobPart.inStock }}</mark> Parts Available in stock
             now...
           </ng-template>
-
           <ng-template #outOfStock>
             Out Of Stock
           </ng-template>
-          <p>Price : {{ mobPart.price | currency: "INR" }}</p>
+
+          <p align="center">
+           
+            <a
+              class="waves-effect waves-light btn"
+              (click)="downQuantity(mobPart)">
+              <i class="material-icons">remove</i></a>
+           {{ mobPart.quantity }}
+           <input
+              [value]="mobPart.quantity"
+              (input)="catchVal($event.target.value)"
+              [(ngModel)]="mobPart.quantity"
+            />
+            <a
+              class="waves-effect waves-light btn"
+              (click)="upQuantity(mobPart)"
+              ><i class="material-icons">add</i></a>
+
+          </p>
+
+          <p appSimpleStyle>Price : {{ mobPart.price | currency: "INR" }}</p>
          
           <div
             [ngStyle]="{
@@ -75,21 +89,7 @@
               width="24"
             />
           </p>
-
-          <!-- ng-container  vs  ng-template -->
-
-          <!-- <div *ngIf="mobPart.inStock > 0; else outOfStock">
-      Last <mark>{{ mobPart.inStock }}</mark> Parts Available in stock now...
-    </div>
-    <!-- #id : templatevarible -->
-          <ng-template #outOfStock>
-            Out of stock..!
-          </ng-template>
-
-          <!-- <div *ngIf="mobPart.inStock === 0">
-      Out Of Stock Now...
-    </div> -->
-        </div>
+       </div>
       </div>
     </div>
   </li>

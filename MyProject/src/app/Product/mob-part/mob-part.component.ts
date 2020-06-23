@@ -11,17 +11,18 @@ export class MobPartComponent implements OnInit {
   mobParts:MobParts[] = [
     
     {
-      id: 1002,
-      name: "SCREEN 5",
-      description: "5 Screen for Samsung",
-      inStock: 8,
-      prodColor: "blue",
+      id: 1001,
+      name: "SCREEN 6.9",
+      description: "9 Screen for Redmi",
+      inStock: 2,
+      prodColor: "gray",
       canPurch: false,
       namecol: "Red",
       clsVar: true,
       country: "India",
-      prodimage:'mob2.png',
+      prodimage:'pr.jpg',
       price: 50000,
+      quantity: 2,
     },
     {
       id: 1002,
@@ -35,6 +36,7 @@ export class MobPartComponent implements OnInit {
       country: "India",
       prodimage:'images.jpg',
       price: 50000,
+      quantity: 3,
     },
     {
       id: 1003,
@@ -48,6 +50,7 @@ export class MobPartComponent implements OnInit {
       country: "Germany",
       prodimage:'1500_.jpg',
       price: 9000,
+      quantity: 0,
     },
     {
       id: 1004,
@@ -58,9 +61,10 @@ export class MobPartComponent implements OnInit {
       namecol: "violet",
       canPurch: true,
       clsVar: true,
-      country: "USA",
+      country: "India",
       prodimage:'79_.jpg',
       price: 12000,
+      quantity: 2,
     },
   ];
 
@@ -73,10 +77,23 @@ export class MobPartComponent implements OnInit {
 
     return tot;
   }
-
+ 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  upQuantity(mobPart) {
+    // alert('We are in upQuantity');
+    if (mobPart.quantity < mobPart.inStock) mobPart.quantity++;
+  }
+
+  downQuantity(mobPart) {
+    if (mobPart.quantity != 0) mobPart.quantity--;
+  }
+  catchVal(event) {
+    console.log("we are in 'catchVal' ", event);
+  }
 }
+
+

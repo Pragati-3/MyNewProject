@@ -1,40 +1,66 @@
 <ul>
-    <li *ngFor="let laptop of laptops">
-        <div class="col s8 m3">
-            <div class="card-action">
+    <li *ngFor="let LappPart of laptops">
+        <div class="col s6 m3">
+            <div class="card" [class.clSName]="LappPart.clsVar">
                 <div class="card-image">
-                    <img src="../../../assets/img/download (2).jpg " />
-                    <span class="card-title">
-            <div [style.color]="laptop.namecol">
-              <b><i>{{ laptop.name | lowercase }}</i></b >
-            </div>
-          </span>
+                    <!-- <img src="{{ LappPart.prodImg }}" /> -->
+                    <!-- <img [src]="LappPart.prodImg" /> -->
+                    <img src="../../../assets/img/{{ LappPart.lapimg }}" />
+                    <div class="card-title" [style.color]="LappPart.namecol">
+                        <b><i>{{ LappPart.name | uppercase }}</i></b >
+                    </div>
+                   <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
-                    <p appSimpleStyle>
-                        laptop ID : <b>{{ laptop.id }}</b>
-                    </p>
-                    <div [style.color]="laptop.prodColor">
-                        laptop Name :
-                        <b><i>{{ laptop.name | uppercase }}</i></b >
-                    </div>
-                 <div>Description : <q>{{ laptop.description }}</q>
-          </div>
-
+                   <p>
+                       Laptop Part ID : <b>{{ LappPart.id }}</b>
+                        </p>
+                        <div [style.color]="LappPart.prodColor">
+                            Laptop Part Name :
+                            <b><i>{{ LappPart.name | uppercase }}</i></b >
+                       </div>
+           <div appNewstyle>
+                    Description : <q>{{LappPart.description }}</q>
+            </div>
           <ng-container
-            *ngIf="laptop.inStock != 0; then stockVal; else outOfStock"
-          >
+            *ngIf="LappPart.inStock != 0; then stockVal; else outOfStock">
           </ng-container>
-
-          <ng-template #stockVal>
-            Last <mark>{{ laptop.inStock }}</mark> Parts Available in stock
+         <ng-template #stockVal>
+            Last <mark >{{ LappPart.inStock }}</mark> Parts Available in stock
             now...
           </ng-template>
           <ng-template #outOfStock>
             Out Of Stock
           </ng-template>
-          <p >Price : {{ laptop.price | currency: "INR" }}</p>
-          <p [ngSwitch]="laptop.country">
+
+          <!-- <p align="center">
+           
+            <a
+              class="waves-effect waves-light btn"
+              (click)="downQuantity(LappPart)">
+              <i class="material-icons">remove</i></a>
+           {{ LappPart.quantity }}
+            <a
+              class="waves-effect waves-light btn"
+              (click)="upQuantity(LappPart)"
+              ><i class="material-icons">add</i></a>
+
+          </p> -->
+
+          <p appSimpleStyle>Price : {{ LappPart.price | currency: "INR" }}</p>
+         
+          <div
+            [ngStyle]="{
+              display: LappPart.canPurch === true ? 'inline-block' : 'none'
+            }"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Green_sphere.svg/2000px-Green_sphere.svg.png"
+              width="16"
+            />
+          </div>
+
+          <p [ngSwitch]="LappPart.country">
             Country :
             <img
               *ngSwitchCase="'Australia'"
@@ -57,8 +83,8 @@
               width="24"
             />
           </p>
-        </div>
-     </div>
+       </div>
+      </div>
     </div>
   </li>
 </ul>
