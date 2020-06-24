@@ -18,7 +18,11 @@ import { PenComponent } from './Product/pen/pen.component';
 import { LaptopComponent } from './Product/laptop/laptop.component';
 
 import { AppRoutingModule } from './modules/app-routing.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MobileNavComponent } from './Product/mob-part/mobile-nav/mobile-nav.component';
+import { MotoComponent } from './Product/mob-part/moto/moto.component';
+import { SamsungComponent } from './Product/mob-part/samsung/samsung.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +40,16 @@ import { AppRoutingModule } from './modules/app-routing.module';
     MobPartComponent,
     PenComponent,
     LaptopComponent,
-    
- 
-  ],
+    MobileNavComponent,
+    MotoComponent,
+    SamsungComponent,
+    ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,3 +10,5 @@
     background: -webkit-linear-gradient( to right, #e7e9bb, #403b4a);
     background: linear-gradient( to right, #e7e9bb, rgb(159, 200, 216));
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
