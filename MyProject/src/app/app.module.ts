@@ -23,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MobileNavComponent } from './Product/mob-part/mobile-nav/mobile-nav.component';
 import { MotoComponent } from './Product/mob-part/moto/moto.component';
 import { SamsungComponent } from './Product/mob-part/samsung/samsung.component';
+import { HomeComponent } from './Product/home/home.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SamsungComponent } from './Product/mob-part/samsung/samsung.component';
     MobileNavComponent,
     MotoComponent,
     SamsungComponent,
+    HomeComponent,
     ],
   imports: [
     BrowserModule,

@@ -8,9 +8,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { MobileNavComponent } from '../Product/mob-part/mobile-nav/mobile-nav.component';
 import { MotoComponent } from '../Product/mob-part/moto/moto.component';
 import { SamsungComponent } from '../Product/mob-part/samsung/samsung.component';
+import { HomeComponent } from '../Product/home/home.component';
 
 
 const appRoutes: Routes = [
+
+  {path: 'Mobile Phones', component:HomeComponent },
   
   {path: 'Mobile Phones', component: MobPartComponent},
   {
